@@ -22,8 +22,11 @@ body { font-family:'Plus Jakarta Sans',sans-serif; background:var(--off-white); 
 
 /* ── NAV ── */
 nav { background:var(--white); border-bottom:1px solid var(--border); padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:68px; position:sticky; top:0; z-index:200; }
-.logo { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--green); cursor:pointer; }
+.logo { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--green); cursor:pointer; display:flex; align-items:center; gap:.6rem; }
 .logo span { color:var(--green-mid); }
+.logo img { mix-blend-mode:multiply; background:transparent; }
+.logo-name { font-family:'DM Serif Display',serif; font-size:1.25rem; color:var(--green); line-height:1.2; }
+.logo-name span { color:var(--green-mid); }
 .nav-links { display:flex; gap:2rem; list-style:none; }
 .nav-links a { text-decoration:none; color:var(--muted); font-size:.9rem; font-weight:500; transition:color .2s; cursor:pointer; }
 .nav-links a:hover, .nav-links a.active-link { color:var(--green); font-weight:700; }
@@ -301,7 +304,7 @@ footer strong { color:white; }
 <div class="page active" id="pageHome">
 <div class="hero">
   <div class="hero-tag">🥗 Real Food. Real Results.</div>
-  <h1>Eat <em>Healthy,</em><br>Live Better</h1>
+  <h1>Better <em>Food,</em><br>Better Mood</h1>
   <p>Chef-crafted meals with full nutrition transparency. Every calorie, every macro — right on the label.</p>
   <div class="hero-ctas">
     <button class="btn-white" id="heroMenuBtn">See Our Menu</button>
