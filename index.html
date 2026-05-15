@@ -40,78 +40,95 @@ nav { background:var(--white); border-bottom:1px solid var(--border); padding:0 
 .btn-nav-cta { background:var(--green); color:white; border:none; padding:.55rem 1.3rem; border-radius:100px; font-size:.875rem; font-weight:600; cursor:pointer; font-family:inherit; transition:background .2s; }
 .btn-nav-cta:hover { background:#235f3c; }
 
+/* ── ENHANCED NAV ── */
+nav { background:rgba(255,255,255,0.97); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow:0 2px 20px rgba(45,122,79,.07); }
+.nav-links a { position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--green); border-radius:2px; transition:width .25s ease; }
+.nav-links a:hover::after, .nav-links a.active-link::after { width:100%; }
+.btn-nav-cta { background:linear-gradient(135deg,var(--green),#235f3c); box-shadow:0 4px 14px rgba(45,122,79,.25); transition:all .2s; }
+.btn-nav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(45,122,79,.38); background:linear-gradient(135deg,#235f3c,#1a4f30); }
+
 /* ── HERO ── */
-.hero { background:linear-gradient(135deg,#1a3d26 0%,#2d7a4f 60%,#4caf78 100%); color:white; padding:6rem 2rem 5rem; text-align:center; position:relative; overflow:hidden; }
-.hero::before { content:''; position:absolute; width:600px; height:600px; border-radius:50%; background:rgba(255,255,255,.03); top:-200px; right:-150px; }
-.hero::after { content:''; position:absolute; width:400px; height:400px; border-radius:50%; background:rgba(255,255,255,.04); bottom:-100px; left:-100px; }
-.hero-tag { display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); padding:.3rem 1rem; border-radius:100px; font-size:.8rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:1.5rem; position:relative; z-index:1; }
-.hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(2.5rem,6vw,4.5rem); line-height:1.1; margin-bottom:1.25rem; position:relative; z-index:1; }
+.hero { background:linear-gradient(135deg,#0d2618 0%,#1a3d26 35%,#2d7a4f 70%,#3d9960 100%); color:white; padding:7rem 2rem 6rem; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(76,175,120,.12) 0%,transparent 70%); top:-280px; right:-220px; animation:floatBubble 9s ease-in-out infinite; }
+.hero::after { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.05) 0%,transparent 70%); bottom:-160px; left:-160px; animation:floatBubble 11s ease-in-out infinite reverse; }
+@keyframes floatBubble { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+.hero-tag { display:inline-block; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); padding:.35rem 1.1rem; border-radius:100px; font-size:.8rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:1.5rem; position:relative; z-index:1; backdrop-filter:blur(8px); }
+.hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(2.8rem,6vw,4.8rem); line-height:1.08; margin-bottom:1.25rem; position:relative; z-index:1; text-shadow:0 2px 20px rgba(0,0,0,.2); }
 .hero h1 em { font-style:italic; color:#a8e6c1; }
-.hero p { font-size:1.1rem; color:rgba(255,255,255,.8); max-width:520px; margin:0 auto 2.5rem; position:relative; z-index:1; }
+.hero p { font-size:1.1rem; color:rgba(255,255,255,.82); max-width:520px; margin:0 auto 2.5rem; position:relative; z-index:1; line-height:1.7; }
 .hero-ctas { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
-.btn-white { background:white; color:var(--green); border:none; padding:.85rem 2rem; border-radius:100px; font-size:1rem; font-weight:700; cursor:pointer; font-family:inherit; transition:transform .15s,box-shadow .15s; }
-.btn-white:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,0,0,.2); }
-.btn-ghost { background:transparent; color:white; border:2px solid rgba(255,255,255,.5); padding:.85rem 2rem; border-radius:100px; font-size:1rem; font-weight:600; cursor:pointer; font-family:inherit; transition:border-color .2s,background .2s; }
-.btn-ghost:hover { border-color:white; background:rgba(255,255,255,.1); }
+.btn-white { background:white; color:var(--green); border:none; padding:.9rem 2.2rem; border-radius:100px; font-size:1rem; font-weight:700; cursor:pointer; font-family:inherit; transition:all .2s; box-shadow:0 4px 20px rgba(0,0,0,.15); }
+.btn-white:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,.25); }
+.btn-ghost { background:rgba(255,255,255,.1); color:white; border:2px solid rgba(255,255,255,.4); padding:.9rem 2.2rem; border-radius:100px; font-size:1rem; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s; backdrop-filter:blur(8px); }
+.btn-ghost:hover { border-color:white; background:rgba(255,255,255,.18); transform:translateY(-3px); }
 
 /* ── STATS ── */
-.stats { background:var(--white); border-bottom:1px solid var(--border); display:flex; justify-content:center; flex-wrap:wrap; }
-.stat { padding:1.5rem 3rem; text-align:center; border-right:1px solid var(--border); }
+.stats { background:var(--white); border-bottom:1px solid var(--border); display:flex; justify-content:center; flex-wrap:wrap; box-shadow:0 4px 20px rgba(45,122,79,.05); }
+.stat { padding:1.75rem 3rem; text-align:center; border-right:1px solid var(--border); transition:background .2s; }
 .stat:last-child { border-right:none; }
-.stat-num { font-family:'DM Serif Display',serif; font-size:2rem; color:var(--green); line-height:1; }
-.stat-label { font-size:.8rem; color:var(--muted); margin-top:.25rem; font-weight:500; }
+.stat:hover { background:var(--green-light); }
+.stat-num { font-family:'DM Serif Display',serif; font-size:2.2rem; color:var(--green); line-height:1; background:linear-gradient(135deg,var(--green),#4caf78); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.stat-label { font-size:.8rem; color:var(--muted); margin-top:.3rem; font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
 
 /* ── PAGE HEADER ── */
-.page-header { background:linear-gradient(135deg,#1a3d26 0%,#2d7a4f 60%,#4caf78 100%); color:white; padding:3.5rem 2rem; text-align:center; }
-.page-header h1 { font-family:'DM Serif Display',serif; font-size:clamp(2rem,5vw,3rem); margin-bottom:.5rem; }
-.page-header p { opacity:.8; font-size:1rem; max-width:500px; margin:0 auto; }
+.page-header { background:linear-gradient(135deg,#0d2618 0%,#1a3d26 40%,#2d7a4f 80%,#3d9960 100%); color:white; padding:4rem 2rem; text-align:center; position:relative; overflow:hidden; }
+.page-header::before { content:''; position:absolute; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle,rgba(76,175,120,.12) 0%,transparent 70%); top:-150px; right:-100px; }
+.page-header h1 { font-family:'DM Serif Display',serif; font-size:clamp(2rem,5vw,3.2rem); margin-bottom:.6rem; position:relative; z-index:1; text-shadow:0 2px 15px rgba(0,0,0,.2); }
+.page-header p { opacity:.82; font-size:1.05rem; max-width:500px; margin:0 auto; position:relative; z-index:1; }
 
 /* ── SECTIONS ── */
-section { padding:5rem 2rem; }
-.section-header { text-align:center; margin-bottom:3rem; }
-.stag { display:inline-block; background:var(--green-light); color:var(--green); padding:.3rem 1rem; border-radius:100px; font-size:.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:.75rem; }
-.section-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.2; }
-.section-header p { color:var(--muted); margin-top:.75rem; }
+section { padding:5.5rem 2rem; }
+.section-header { text-align:center; margin-bottom:3.5rem; }
+.stag { display:inline-block; background:linear-gradient(135deg,#e8f5ee,#d4f0e0); color:var(--green); padding:.35rem 1.1rem; border-radius:100px; font-size:.73rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:.9rem; border:1px solid rgba(45,122,79,.15); }
+.section-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2rem,4.5vw,3rem); line-height:1.15; }
+.section-header p { color:var(--muted); margin-top:.85rem; font-size:1.05rem; }
 
 /* ── HOW IT WORKS ── */
-.how { background:var(--green-light); }
-.steps-home { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; max-width:900px; margin:0 auto; }
-.step { text-align:center; }
-.step-num { width:56px; height:56px; background:var(--green); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1.5rem; margin:0 auto 1rem; }
-.step h3 { font-weight:700; font-size:.95rem; margin-bottom:.4rem; }
-.step p { font-size:.82rem; color:var(--muted); }
+.how { background:linear-gradient(135deg,#eef8f2 0%,#e8f5ee 100%); }
+.steps-home { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2.5rem; max-width:960px; margin:0 auto; }
+.step { text-align:center; background:white; border-radius:20px; padding:2rem 1.5rem; box-shadow:0 4px 20px rgba(45,122,79,.08); border:1px solid var(--border); transition:transform .2s, box-shadow .2s; }
+.step:hover { transform:translateY(-5px); box-shadow:0 12px 35px rgba(45,122,79,.14); }
+.step-num { width:60px; height:60px; background:linear-gradient(135deg,var(--green),#4caf78); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1.6rem; margin:0 auto 1.2rem; box-shadow:0 6px 16px rgba(45,122,79,.3); }
+.step h3 { font-weight:700; font-size:1rem; margin-bottom:.5rem; color:var(--text); }
+.step p { font-size:.85rem; color:var(--muted); line-height:1.6; }
 
 /* ── FILTER TABS ── */
 .filter-tabs { display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
-.tab { background:white; border:1.5px solid var(--border); color:var(--muted); padding:.5rem 1.25rem; border-radius:100px; font-size:.85rem; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s; }
-.tab:hover, .tab.active { background:var(--green); border-color:var(--green); color:white; }
+.tab { background:white; border:1.5px solid var(--border); color:var(--muted); padding:.55rem 1.4rem; border-radius:100px; font-size:.85rem; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+.tab:hover { background:var(--green-light); border-color:var(--green); color:var(--green); transform:translateY(-1px); }
+.tab.active { background:linear-gradient(135deg,var(--green),#235f3c); border-color:transparent; color:white; box-shadow:0 4px 14px rgba(45,122,79,.3); }
 
 /* ── MENU GRID ── */
-.menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto; }
-.meal-card { background:white; border:1.5px solid var(--border); border-radius:16px; overflow:hidden; transition:transform .2s,box-shadow .2s; }
-.meal-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(45,122,79,.12); }
-.meal-img { height:140px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:var(--green-light); }
-.meal-body { padding:1.25rem; }
+.menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.75rem; max-width:1140px; margin:0 auto; }
+.meal-card { background:white; border:1.5px solid var(--border); border-radius:20px; overflow:hidden; transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s; position:relative; }
+.meal-card:hover { transform:translateY(-6px) scale(1.01); box-shadow:0 20px 45px rgba(45,122,79,.15); }
+.meal-card::after { content:''; position:absolute; inset:0; border-radius:20px; box-shadow:inset 0 0 0 1.5px rgba(76,175,120,0); transition:box-shadow .25s; pointer-events:none; }
+.meal-card:hover::after { box-shadow:inset 0 0 0 1.5px rgba(76,175,120,.3); }
+.meal-img { height:200px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:var(--green-light); overflow:hidden; position:relative; }
+.meal-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.meal-card:hover .meal-img img { transform:scale(1.06); }
+.meal-body { padding:1.4rem; }
 .meal-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:.5rem; }
 .meal-name { font-weight:700; font-size:1rem; line-height:1.3; }
-.meal-cal { background:var(--green-light); color:var(--green); font-size:.75rem; font-weight:700; padding:.2rem .6rem; border-radius:100px; white-space:nowrap; margin-left:.5rem; }
-.meal-desc { font-size:.82rem; color:var(--muted); margin-bottom:1rem; line-height:1.5; }
+.meal-cal { background:linear-gradient(135deg,#e8f5ee,#d4f0e0); color:var(--green); font-size:.73rem; font-weight:700; padding:.25rem .7rem; border-radius:100px; white-space:nowrap; margin-left:.5rem; border:1px solid rgba(45,122,79,.15); }
+.meal-desc { font-size:.83rem; color:var(--muted); margin-bottom:1rem; line-height:1.55; }
 .macros { display:flex; gap:.5rem; margin-bottom:1rem; }
-.macro { flex:1; background:#f7f9f8; border-radius:8px; padding:.4rem .5rem; text-align:center; }
+.macro { flex:1; background:linear-gradient(135deg,#f7f9f8,#f0f5f2); border-radius:10px; padding:.45rem .5rem; text-align:center; border:1px solid rgba(0,0,0,.04); }
 .macro-val { font-size:.85rem; font-weight:700; }
 .macro-label { font-size:.65rem; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
 .macro.protein .macro-val { color:var(--protein); }
 .macro.carbs .macro-val { color:var(--carbs); }
 .macro.fat .macro-val { color:var(--fat); }
 .meal-footer { display:flex; align-items:center; justify-content:space-between; }
-.meal-price { font-size:1.1rem; font-weight:700; }
+.meal-price { font-size:1.1rem; font-weight:800; color:var(--text); }
 .add-controls { display:flex; align-items:center; gap:.35rem; }
-.qty-btn { background:var(--green-light); border:1.5px solid var(--border); color:var(--green); width:30px; height:30px; border-radius:50%; font-size:1.1rem; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
-.qty-btn:hover { background:var(--green); color:white; border-color:var(--green); }
+.qty-btn { background:var(--green-light); border:1.5px solid var(--border); color:var(--green); width:32px; height:32px; border-radius:50%; font-size:1.1rem; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+.qty-btn:hover { background:var(--green); color:white; border-color:var(--green); transform:scale(1.1); }
 .qty-display { font-size:.9rem; font-weight:700; min-width:22px; text-align:center; }
-.btn-add { background:var(--green); color:white; border:none; padding:.5rem 1rem; border-radius:100px; font-size:.82rem; font-weight:700; cursor:pointer; font-family:inherit; transition:background .2s; }
-.btn-add:hover { background:#235f3c; }
-.badge-pop { display:inline-block; background:#fff3cd; color:#856404; font-size:.68rem; font-weight:700; padding:.15rem .5rem; border-radius:100px; margin-bottom:.4rem; text-transform:uppercase; letter-spacing:.5px; }
+.btn-add { background:linear-gradient(135deg,var(--green),#235f3c); color:white; border:none; padding:.55rem 1.1rem; border-radius:100px; font-size:.82rem; font-weight:700; cursor:pointer; font-family:inherit; transition:all .2s; box-shadow:0 3px 10px rgba(45,122,79,.25); }
+.btn-add:hover { transform:translateY(-1px); box-shadow:0 5px 16px rgba(45,122,79,.38); background:linear-gradient(135deg,#235f3c,#1a4f30); }
+.badge-pop { display:inline-block; background:linear-gradient(135deg,#fff3cd,#ffe99a); color:#7a5900; font-size:.68rem; font-weight:700; padding:.15rem .6rem; border-radius:100px; margin-bottom:.5rem; text-transform:uppercase; letter-spacing:.5px; border:1px solid rgba(240,165,0,.2); }
 
 /* ── CALORIE CALCULATOR ── */
 .calc-box { max-width:680px; margin:0 auto; background:var(--off-white); border:1.5px solid var(--border); border-radius:20px; padding:2.5rem; }
@@ -136,26 +153,72 @@ section { padding:5rem 2rem; }
 .calc-cta p { color:var(--muted); font-size:.9rem; margin-bottom:1rem; }
 
 /* ── PLANS ── */
-.plans-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; max-width:900px; margin:0 auto; }
-.plan-card { background:var(--off-white); border:2px solid var(--border); border-radius:20px; padding:2rem; text-align:center; transition:transform .2s; position:relative; }
-.plan-card:hover { transform:translateY(-3px); }
-.plan-card.featured { background:var(--green); border-color:var(--green); color:white; transform:scale(1.03); }
-.featured-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--accent); color:#3d2800; font-size:.72rem; font-weight:700; padding:.3rem 1rem; border-radius:100px; text-transform:uppercase; letter-spacing:1px; white-space:nowrap; }
+.plans-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.75rem; max-width:960px; margin:0 auto; }
+.plan-card { background:var(--off-white); border:2px solid var(--border); border-radius:24px; padding:2.25rem; text-align:center; transition:transform .25s, box-shadow .25s; position:relative; }
+.plan-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(45,122,79,.12); }
+.plan-card.featured { background:linear-gradient(145deg,#1a3d26,#2d7a4f); border-color:transparent; color:white; transform:scale(1.04); box-shadow:0 12px 40px rgba(45,122,79,.35); }
+.plan-card.featured:hover { transform:scale(1.04) translateY(-5px); box-shadow:0 20px 50px rgba(45,122,79,.4); }
+.featured-badge { position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#f0a500,#e09000); color:#3d2800; font-size:.72rem; font-weight:800; padding:.35rem 1.1rem; border-radius:100px; text-transform:uppercase; letter-spacing:1px; white-space:nowrap; box-shadow:0 4px 12px rgba(240,165,0,.35); }
 .plan-name { font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:.75rem; opacity:.7; }
-.plan-price { font-family:'DM Serif Display',serif; font-size:2.3rem; line-height:1; margin-bottom:.25rem; }
+.plan-price { font-family:'DM Serif Display',serif; font-size:2.5rem; line-height:1; margin-bottom:.25rem; }
 .plan-period { font-size:.8rem; opacity:.6; margin-bottom:1.5rem; }
 .plan-features { list-style:none; text-align:left; margin-bottom:1.75rem; }
-.plan-features li { font-size:.875rem; padding:.4rem 0; display:flex; align-items:flex-start; gap:.6rem; }
+.plan-features li { font-size:.875rem; padding:.45rem 0; display:flex; align-items:flex-start; gap:.6rem; border-bottom:1px solid rgba(0,0,0,.05); }
+.plan-card.featured .plan-features li { border-bottom-color:rgba(255,255,255,.08); }
+.plan-features li:last-child { border-bottom:none; }
 .plan-features li::before { content:'✓'; font-weight:800; color:var(--green-mid); flex-shrink:0; margin-top:.1rem; }
 .plan-card.featured .plan-features li::before { color:#a8e6c1; }
-.btn-plan { width:100%; padding:.85rem; border-radius:100px; font-size:.95rem; font-weight:700; cursor:pointer; font-family:inherit; transition:all .2s; border:2px solid var(--green); background:transparent; color:var(--green); }
-.btn-plan:hover { background:var(--green); color:white; }
+.btn-plan { width:100%; padding:.9rem; border-radius:100px; font-size:.95rem; font-weight:700; cursor:pointer; font-family:inherit; transition:all .2s; border:2px solid var(--green); background:transparent; color:var(--green); }
+.btn-plan:hover { background:var(--green); color:white; transform:translateY(-1px); box-shadow:0 5px 16px rgba(45,122,79,.3); }
 .plan-card.featured .btn-plan { background:white; color:var(--green); border-color:white; }
-.plan-card.featured .btn-plan:hover { background:var(--green-light); }
+.plan-card.featured .btn-plan:hover { background:var(--green-light); transform:translateY(-1px); }
 
 /* ── FOOTER ── */
-footer { background:var(--text); color:rgba(255,255,255,.6); text-align:center; padding:2rem; font-size:.85rem; }
-footer strong { color:white; }
+footer { background:linear-gradient(160deg,#0a1f12 0%,#0d2618 40%,#1a3d26 100%); color:rgba(255,255,255,.65); font-size:.875rem; }
+footer strong { color:white; font-size:1rem; }
+footer small { display:block; margin-top:.5rem; opacity:.5; }
+
+/* ── RICH FOOTER ── */
+.footer-main { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; max-width:1140px; margin:0 auto; padding:4rem 2rem 2.5rem; }
+.footer-brand .logo-name { font-family:'DM Serif Display',serif; font-size:1.4rem; color:white; margin-bottom:.75rem; }
+.footer-brand .logo-name span { color:#4caf78; }
+.footer-brand p { font-size:.85rem; color:rgba(255,255,255,.55); line-height:1.7; max-width:240px; margin-bottom:1.25rem; }
+.footer-socials { display:flex; gap:.6rem; flex-wrap:wrap; }
+.social-btn { width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:1.1rem; cursor:pointer; transition:all .2s; text-decoration:none; }
+.social-btn:hover { background:var(--green); border-color:var(--green); transform:translateY(-2px); }
+.footer-col h4 { color:white; font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:1.1rem; }
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+.footer-col ul li a { color:rgba(255,255,255,.55); text-decoration:none; font-size:.85rem; transition:color .2s; cursor:pointer; display:flex; align-items:center; gap:.4rem; }
+.footer-col ul li a:hover { color:#4caf78; }
+.footer-contact-item { display:flex; align-items:flex-start; gap:.65rem; margin-bottom:.75rem; }
+.footer-contact-item .fc-icon { font-size:1rem; margin-top:.1rem; flex-shrink:0; }
+.footer-contact-item .fc-text { font-size:.83rem; color:rgba(255,255,255,.55); line-height:1.5; }
+.footer-contact-item .fc-text strong { color:rgba(255,255,255,.8); display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.5px; margin-bottom:.1rem; }
+.footer-contact-item a { color:rgba(255,255,255,.55); text-decoration:none; transition:color .2s; }
+.footer-contact-item a:hover { color:#4caf78; }
+.footer-divider { border:none; border-top:1px solid rgba(255,255,255,.08); margin:0; }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1140px; margin:0 auto; padding:1.25rem 2rem; }
+.footer-bottom-left { font-size:.78rem; color:rgba(255,255,255,.35); }
+.footer-bottom-right { display:flex; gap:1.5rem; }
+.footer-bottom-right a { font-size:.78rem; color:rgba(255,255,255,.35); text-decoration:none; transition:color .2s; cursor:pointer; }
+.footer-bottom-right a:hover { color:rgba(255,255,255,.7); }
+.footer-newsletter { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:1.1rem 1.25rem; margin-top:1rem; }
+.footer-newsletter p { font-size:.78rem; color:rgba(255,255,255,.5); margin-bottom:.65rem; }
+.footer-newsletter-row { display:flex; gap:.5rem; }
+.footer-newsletter-row input { flex:1; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.5rem .75rem; font-size:.82rem; color:white; font-family:inherit; outline:none; }
+.footer-newsletter-row input::placeholder { color:rgba(255,255,255,.3); }
+.footer-newsletter-row input:focus { border-color:#4caf78; }
+.footer-newsletter-row button { background:var(--green); color:white; border:none; border-radius:8px; padding:.5rem .9rem; font-size:.78rem; font-weight:700; cursor:pointer; font-family:inherit; white-space:nowrap; transition:background .2s; }
+.footer-newsletter-row button:hover { background:#235f3c; }
+.footer-badge { display:inline-flex; align-items:center; gap:.35rem; background:rgba(76,175,120,.15); border:1px solid rgba(76,175,120,.25); border-radius:100px; padding:.25rem .75rem; font-size:.72rem; color:#4caf78; font-weight:600; margin-bottom:1rem; }
+
+@media(max-width:768px){
+  .footer-main { grid-template-columns:1fr 1fr; gap:2rem; padding:2.5rem 1.25rem 1.5rem; }
+  .footer-brand { grid-column:1/-1; }
+  .footer-brand p { max-width:100%; }
+  .footer-bottom { flex-direction:column; align-items:flex-start; padding:1rem 1.25rem; gap:.5rem; }
+  .footer-bottom-right { gap:1rem; flex-wrap:wrap; }
+}
 
 /* ── CART DRAWER ── */
 .cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:300; opacity:0; pointer-events:none; transition:opacity .3s; }
@@ -196,6 +259,42 @@ footer strong { color:white; }
 .btn-checkout { width:100%; background:var(--green); color:white; border:none; padding:1rem; border-radius:100px; font-size:1rem; font-weight:700; cursor:pointer; font-family:inherit; transition:background .2s; }
 .btn-checkout:hover { background:#235f3c; }
 
+/* ── CHECKOUT PAYMENT MODAL ── */
+.pay-modal { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:490; display:none; align-items:center; justify-content:center; padding:1rem; backdrop-filter:blur(4px); }
+.pay-modal.show { display:flex; }
+.pay-modal-box { background:white; border-radius:24px; padding:2rem; max-width:480px; width:100%; animation:popIn .35s cubic-bezier(.34,1.56,.64,1); max-height:90vh; overflow-y:auto; }
+.pay-modal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
+.pay-modal-header h3 { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--text); }
+.pay-modal-close { background:var(--green-light); border:none; color:var(--green); width:36px; height:36px; border-radius:50%; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:700; transition:background .2s; }
+.pay-modal-close:hover { background:var(--green); color:white; }
+.pay-modal-summary { background:var(--green-light); border:1px solid var(--border); border-radius:12px; padding:.85rem 1rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center; }
+.pay-modal-summary .pm-label { font-size:.82rem; color:var(--muted); font-weight:600; }
+.pay-modal-summary .pm-total { font-family:'DM Serif Display',serif; font-size:1.6rem; color:var(--green); }
+.pm-section-label { font-size:.78rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.6px; margin-bottom:.75rem; }
+.pm-pay-grid { display:grid; grid-template-columns:1fr 1fr; gap:.65rem; margin-bottom:1.25rem; }
+.pm-opt { border:2px solid var(--border); border-radius:12px; padding:.8rem .6rem; text-align:center; cursor:pointer; transition:all .2s; font-size:.78rem; font-weight:600; color:var(--muted); }
+.pm-opt:hover { border-color:var(--green); color:var(--green); background:var(--green-light); }
+.pm-opt.selected { border-color:var(--green); background:var(--green-light); color:var(--green); }
+.pm-opt .pm-icon { font-size:1.5rem; margin-bottom:.3rem; }
+.pm-fields { display:none; margin-bottom:1rem; }
+.pm-fields.show { display:block; }
+.pm-field { margin-bottom:.85rem; }
+.pm-field label { display:block; font-size:.78rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-bottom:.35rem; }
+.pm-field input { width:100%; background:var(--off-white); border:1.5px solid var(--border); border-radius:8px; padding:.6rem .85rem; font-size:.92rem; font-family:inherit; color:var(--text); outline:none; transition:border-color .2s; }
+.pm-field input:focus { border-color:var(--green); background:white; }
+.pm-card-row { display:grid; grid-template-columns:1fr 1fr; gap:.65rem; }
+.pm-save-row { display:flex; align-items:center; gap:.6rem; margin-bottom:1.25rem; padding:.65rem .9rem; background:var(--off-white); border:1.5px solid var(--border); border-radius:10px; cursor:pointer; transition:border-color .2s; }
+.pm-save-row:hover { border-color:var(--green); }
+.pm-save-row input[type=checkbox] { width:17px; height:17px; accent-color:var(--green); cursor:pointer; flex-shrink:0; }
+.pm-save-row label { font-size:.83rem; font-weight:600; color:var(--text); cursor:pointer; line-height:1.4; }
+.pm-save-row label span { display:block; font-size:.74rem; color:var(--muted); font-weight:400; margin-top:.1rem; }
+.pm-confirm-btn { width:100%; background:linear-gradient(135deg,var(--green),#235f3c); color:white; border:none; padding:1rem; border-radius:100px; font-size:1rem; font-weight:700; cursor:pointer; font-family:inherit; transition:all .2s; box-shadow:0 4px 14px rgba(45,122,79,.28); }
+.pm-confirm-btn:hover { transform:translateY(-1px); box-shadow:0 7px 20px rgba(45,122,79,.38); }
+.pm-confirm-btn:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+.pm-secure { text-align:center; font-size:.75rem; color:var(--muted); margin-top:.65rem; }
+.pm-cash-note { background:#fff8e6; border:1.5px solid #f0c04a; border-radius:10px; padding:.75rem 1rem; font-size:.82rem; color:#7a5900; line-height:1.5; margin-bottom:.75rem; display:none; }
+.pm-cash-note.show { display:block; }
+
 /* ── CHECKOUT MODAL ── */
 .checkout-modal { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:500; display:none; align-items:center; justify-content:center; padding:1rem; }
 .checkout-modal.show { display:flex; }
@@ -224,7 +323,156 @@ footer strong { color:white; }
 .back-btn { display:inline-flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); color:white; padding:.4rem 1rem; border-radius:100px; font-size:.82rem; font-weight:600; cursor:pointer; font-family:inherit; margin-bottom:1.5rem; transition:background .2s; }
 .back-btn:hover { background:rgba(255,255,255,.25); }
 .sub-content { max-width:900px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-@media(max-width:700px){ .sub-content{grid-template-columns:1fr;} .calc-grid{grid-template-columns:1fr;} .plans-grid{grid-template-columns:1fr;} .stat{border-right:none; border-bottom:1px solid var(--border);} .nav-links{display:none;} }
+/* ══════════════════════════════════════
+   MOBILE — full responsive overhaul
+══════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* ── NAV ── */
+  nav { padding:0 1rem; height:60px; }
+  .nav-links { display:none; }
+  .btn-nav-cta { display:none; }
+  .cart-btn { display:none; }
+
+  /* ── BOTTOM NAV BAR ── */
+  .mobile-bottom-nav {
+    display:flex !important;
+    position:fixed; bottom:0; left:0; right:0;
+    background:rgba(255,255,255,.97);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-top:1px solid var(--border);
+    z-index:250;
+    padding:.5rem 0 calc(.5rem + env(safe-area-inset-bottom));
+    box-shadow:0 -4px 20px rgba(45,122,79,.08);
+  }
+  .mbn-item {
+    flex:1; display:flex; flex-direction:column;
+    align-items:center; gap:.2rem;
+    cursor:pointer; padding:.4rem .2rem;
+    border:none; background:transparent;
+    font-family:inherit; color:var(--muted);
+    font-size:.62rem; font-weight:600;
+    transition:color .2s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .mbn-item.active { color:var(--green); }
+  .mbn-icon { font-size:1.35rem; line-height:1; }
+  .mbn-cart { position:relative; }
+  .mbn-badge {
+    position:absolute; top:-4px; right:-6px;
+    background:var(--green); color:white;
+    border-radius:50%; width:17px; height:17px;
+    font-size:.6rem; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid white;
+  }
+
+  /* ── PAGE PADDING (above bottom nav) ── */
+  .page { padding-bottom:72px; }
+
+  /* ── HERO ── */
+  .hero { padding:4rem 1.25rem 3.5rem; }
+  .hero h1 { font-size:2.4rem; }
+  .hero p { font-size:.95rem; margin-bottom:2rem; }
+  .hero-ctas { flex-direction:column; align-items:center; gap:.75rem; }
+  .hero-ctas button { width:100%; max-width:300px; padding:1rem 1.5rem; font-size:.95rem; }
+
+  /* ── STATS ── */
+  .stats { display:grid; grid-template-columns:1fr 1fr; }
+  .stat { border-right:none; border-bottom:1px solid var(--border); padding:1.2rem 1rem; }
+  .stat:nth-child(odd) { border-right:1px solid var(--border); }
+  .stat:nth-child(3), .stat:nth-child(4) { border-bottom:none; }
+  .stat-num { font-size:1.8rem; }
+
+  /* ── SECTIONS ── */
+  section { padding:3rem 1.25rem; }
+  .inner-section { padding:2rem 1.25rem; }
+  .section-header { margin-bottom:2rem; }
+  .section-header h2 { font-size:1.8rem; }
+
+  /* ── PAGE HEADER ── */
+  .page-header { padding:2.5rem 1.25rem; }
+  .page-header h1 { font-size:1.9rem; }
+
+  /* ── HOW IT WORKS ── */
+  .steps-home { grid-template-columns:1fr; gap:1rem; max-width:100%; }
+  .step { padding:1.5rem 1.25rem; border-radius:16px; display:flex; align-items:flex-start; gap:1rem; text-align:left; }
+  .step-num { width:48px; height:48px; font-size:1.3rem; flex-shrink:0; margin:0; }
+
+  /* ── MENU GRID ── */
+  .menu-grid { grid-template-columns:1fr; gap:1rem; }
+  .meal-img { height:180px; }
+
+  /* ── FILTER TABS ── */
+  .filter-tabs { gap:.4rem; padding:0 .25rem; flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:.5rem; }
+  .filter-tabs::-webkit-scrollbar { display:none; }
+  .tab { padding:.5rem 1.1rem; font-size:.8rem; white-space:nowrap; flex-shrink:0; }
+
+  /* ── CALORIE CALC ── */
+  .calc-box { padding:1.5rem 1.25rem; }
+  .calc-grid { grid-template-columns:1fr; gap:1rem; }
+  .calc-results-grid { grid-template-columns:1fr 1fr; gap:.5rem; }
+
+  /* ── PLANS ── */
+  .plans-grid { grid-template-columns:1fr; gap:1.25rem; }
+  .plan-card.featured { transform:none; }
+  .plan-card.featured:hover { transform:translateY(-5px); }
+
+  /* ── SUBSCRIBE PAGE ── */
+  .sub-content { grid-template-columns:1fr; padding:1.5rem 1.25rem; gap:1.5rem; }
+  .sub-form-col { padding:1.5rem 1.25rem; }
+  .card-row { grid-template-columns:1fr; }
+
+  /* ── CART DRAWER ── */
+  .cart-drawer { width:100%; border-radius:20px 20px 0 0; top:auto; bottom:0; height:90vh; border-left:none; transform:translateY(100%); }
+  .cart-drawer.open { transform:translateY(0); }
+  .drawer-header { padding:1.25rem 1.25rem 1rem; }
+  .cart-body { padding:.5rem 1.25rem; }
+  .cart-foot { padding:1rem 1.25rem; }
+  .macro-summary { padding:.75rem; }
+  .ms-val { font-size:.82rem; }
+  .ms-label { font-size:.58rem; }
+  .total-val { font-size:1.5rem; }
+  .btn-checkout { padding:.9rem; font-size:.95rem; }
+  .ci-price { min-width:56px; font-size:.82rem; }
+
+  /* ── PAYMENT MODAL ── */
+  .pay-modal { align-items:flex-end; padding:0; }
+  .pay-modal-box {
+    border-radius:20px 20px 0 0;
+    max-width:100%; width:100%;
+    padding:1.5rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
+    max-height:92vh;
+    animation:slideUp .3s cubic-bezier(.34,1.2,.64,1);
+  }
+  @keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+  .pm-pay-grid { grid-template-columns:1fr 1fr; gap:.5rem; }
+  .pm-opt { padding:.75rem .5rem; }
+  .pm-card-row { grid-template-columns:1fr 1fr; }
+
+  /* ── CHECKOUT CONFIRM MODAL ── */
+  .checkout-modal { align-items:flex-end; padding:0; }
+  .checkout-box { border-radius:20px 20px 0 0; padding:2rem 1.25rem calc(2rem + env(safe-area-inset-bottom)); max-width:100%; animation:slideUp .3s cubic-bezier(.34,1.2,.64,1); }
+  .steps-status { flex-wrap:wrap; gap:.5rem; justify-content:center; }
+  .status-step { flex:0 0 45%; }
+
+  /* ── FOOTER ── */
+  footer { padding:2rem 1.25rem; padding-bottom:calc(2rem + 72px); }
+
+  /* ── TOUCH TARGETS ── */
+  .qty-btn, .cqb { width:38px; height:38px; }
+  .btn-add { padding:.6rem 1.1rem; }
+  input, select { font-size:16px !important; }
+
+}
+
+/* Tiny phones */
+@media(max-width:375px){
+  .hero h1 { font-size:2rem; }
+  .pm-opt .pm-icon { font-size:1.2rem; }
+  .pm-opt { font-size:.72rem; }
+}
 .sub-features-col h3 { font-family:'DM Serif Display',serif; font-size:1.5rem; margin-bottom:1.5rem; }
 .feature-item { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.25rem; }
 .feature-icon { width:42px; height:42px; border-radius:10px; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
@@ -251,9 +499,138 @@ footer strong { color:white; }
 
 .inner-body { background:var(--off-white); }
 .inner-section { padding:4rem 2rem; }
+
+/* ── SCROLL REVEAL ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+.meal-card { animation:fadeUp .45s ease both; }
+.meal-card:nth-child(1){animation-delay:.05s} .meal-card:nth-child(2){animation-delay:.1s}
+.meal-card:nth-child(3){animation-delay:.15s} .meal-card:nth-child(4){animation-delay:.2s}
+.meal-card:nth-child(5){animation-delay:.25s} .meal-card:nth-child(6){animation-delay:.3s}
+.step { animation:fadeUp .5s ease both; }
+.step:nth-child(1){animation-delay:.1s} .step:nth-child(2){animation-delay:.2s} .step:nth-child(3){animation-delay:.3s}
+
+/* ── CHECKOUT BUTTON ── */
+.btn-checkout { background:linear-gradient(135deg,var(--green),#235f3c); box-shadow:0 4px 16px rgba(45,122,79,.3); transition:all .2s; }
+.btn-checkout:hover { background:linear-gradient(135deg,#235f3c,#1a4f30); transform:translateY(-1px); box-shadow:0 6px 22px rgba(45,122,79,.4); }
+
+/* ── SUBSCRIBE BUTTON ── */
+.btn-subscribe-now { background:linear-gradient(135deg,var(--green),#235f3c); box-shadow:0 4px 16px rgba(45,122,79,.3); }
+.btn-subscribe-now:hover { background:linear-gradient(135deg,#235f3c,#1a4f30); transform:translateY(-1px); }
+
+/* ── BACK BTN ── */
+.back-btn { backdrop-filter:blur(8px); }
+
+/* ── CART DRAWER ── */
+.cart-drawer { border-left:1px solid var(--border); }
+.drawer-header { background:linear-gradient(135deg,#f7fdf9,#ffffff); }
+
+/* ── BOTTOM NAV (hidden desktop) ── */
+.mobile-bottom-nav { display:none; }
+
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:var(--off-white); }
+::-webkit-scrollbar-thumb { background:var(--green-mid); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:var(--green); }
+/* ── NEWSLETTER TOAST ── */
+.nl-toast { position:fixed; bottom:90px; left:50%; transform:translateX(-50%) translateY(20px); background:linear-gradient(135deg,#1a3d26,#2d7a4f); color:white; padding:.85rem 1.5rem; border-radius:100px; font-size:.88rem; font-weight:600; z-index:9999; white-space:nowrap; box-shadow:0 8px 30px rgba(45,122,79,.4); opacity:0; transition:all .35s cubic-bezier(.34,1.56,.64,1); pointer-events:none; display:flex; align-items:center; gap:.5rem; }
+.nl-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+@media(max-width:768px){ .nl-toast { bottom:82px; font-size:.82rem; padding:.75rem 1.25rem; } }
+
+/* ── SOCIAL HOVER COLORS ── */
+#socialFb:hover { background:#1877f2 !important; border-color:#1877f2 !important; color:white !important; }
+#socialIg:hover { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888) !important; border-color:#e1306c !important; color:white !important; }
+#socialTt:hover { background:#010101 !important; border-color:#010101 !important; color:white !important; }
+#socialWa:hover { background:#25d366 !important; border-color:#25d366 !important; color:white !important; }
+
 </style>
 </head>
 <body>
+<!-- ══ NEWSLETTER TOAST ══ -->
+<div class="nl-toast" id="nlToast">✅ تم الاشتراك! هيوصلك كل جديد 🎉</div>
+
+
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+  <button class="mbn-item active" id="mbnHome">
+    <span class="mbn-icon">🏠</span>Home
+  </button>
+  <button class="mbn-item" id="mbnMenu">
+    <span class="mbn-icon">🥗</span>Menu
+  </button>
+  <button class="mbn-item" id="mbnCalc">
+    <span class="mbn-icon">🧮</span>Calc
+  </button>
+  <button class="mbn-item" id="mbnPlans">
+    <span class="mbn-icon">⭐</span>Plans
+  </button>
+  <button class="mbn-item mbn-cart" id="mbnCart">
+    <span class="mbn-icon">🛒<span class="mbn-badge" id="mbnBadge">0</span></span>Cart
+  </button>
+</nav>
+
+
+<div class="pay-modal" id="cartPayModal">
+  <div class="pay-modal-box">
+    <div class="pay-modal-header">
+      <h3>💳 إتمام الطلب</h3>
+      <button class="pay-modal-close" id="cartPayModalClose">✕</button>
+    </div>
+    <div class="pay-modal-summary">
+      <div>
+        <div class="pm-label">إجمالي الطلب</div>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:2px;" id="pmItemCount"></div>
+      </div>
+      <div class="pm-total" id="pmTotalDisplay">0 EGP</div>
+    </div>
+
+    <div class="pm-section-label">اختار طريقة الدفع</div>
+    <div class="pm-pay-grid" id="cartPayGrid">
+      <div class="pm-opt" data-pm="card"><div class="pm-icon">💳</div>Visa / Credit Card</div>
+      <div class="pm-opt" data-pm="vodafone"><div class="pm-icon">🔴</div>Vodafone Cash</div>
+      <div class="pm-opt" data-pm="instapay"><div class="pm-icon">📱</div>InstaPay</div>
+      <div class="pm-opt" data-pm="cash"><div class="pm-icon">💵</div>كاش عند الاستلام</div>
+    </div>
+
+    <!-- Card Fields -->
+    <div class="pm-fields" id="pmCardFields">
+      <div class="pm-field"><label>Card Number</label><input type="text" id="pmCardNum" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+      <div class="pm-card-row">
+        <div class="pm-field"><label>Expiry</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+        <div class="pm-field"><label>CVV</label><input type="text" placeholder="•••" maxlength="3"></div>
+      </div>
+      <div class="pm-field"><label>Cardholder Name</label><input type="text" placeholder="الاسم على الكارت"></div>
+      <div class="pm-save-row" id="pmSaveCardRow">
+        <input type="checkbox" id="pmSaveCard">
+        <label for="pmSaveCard">احفظ بيانات الكارت<span>هتتملى تلقائي المرة الجاية</span></label>
+      </div>
+    </div>
+
+    <!-- Vodafone Cash Fields -->
+    <div class="pm-fields" id="pmVodafoneFields">
+      <div class="pm-field"><label>رقم فودافون كاش</label><input type="tel" id="pmVodafoneNum" placeholder="01XXXXXXXXX" maxlength="11"></div>
+      <div class="pm-save-row" id="pmSaveVodafoneRow">
+        <input type="checkbox" id="pmSaveVodafone">
+        <label for="pmSaveVodafone">احفظ الرقم ده<span>هيتملى تلقائي المرة الجاية</span></label>
+      </div>
+    </div>
+
+    <!-- InstaPay Fields -->
+    <div class="pm-fields" id="pmInstaFields">
+      <div class="pm-field"><label>رقم InstaPay / الموبايل</label><input type="tel" id="pmInstaNum" placeholder="01XXXXXXXXX" maxlength="11"></div>
+      <div class="pm-save-row" id="pmSaveInstaRow">
+        <input type="checkbox" id="pmSaveInsta">
+        <label for="pmSaveInsta">احفظ الرقم ده<span>هيتملى تلقائي المرة الجاية</span></label>
+      </div>
+    </div>
+
+    <!-- Cash Note -->
+    <div class="pm-cash-note" id="pmCashNote">
+      💵 هتدفع كاش لما الأكل يوصلك! فاضل بس تأكد طلبك وأحنا هنبعت ليك الأكل على طول.
+    </div>
+
+    <button class="pm-confirm-btn" id="pmConfirmBtn" disabled>تأكيد الطلب →</button>
+    <div class="pm-secure">🔒 طلبك آمن ومضمون · الدفع عند الاستلام متاح</div>
+  </div>
+</div>
 
 <!-- ══ CHECKOUT MODAL ══ -->
 <div class="checkout-modal" id="checkoutModal">
@@ -329,7 +706,91 @@ footer strong { color:white; }
     <div class="step"><div class="step-num">3</div><h3>Eat & Track</h3><p>Every meal shows full macros so you hit your targets effortlessly.</p></div>
   </div>
 </section>
-<footer><strong>Fitter Is Better</strong> — Healthy meals, full transparency, real results.<br><small style="margin-top:.5rem;display:block;">© 2025 Fitter Is Better. All rights reserved.</small></footer>
+<footer>
+  <div class="footer-main">
+    <!-- Brand col -->
+    <div class="footer-brand">
+      <div class="footer-badge">🥗 Real Food · Real Results</div>
+      <div class="logo-name">Fitter Is <span>Better</span></div>
+      <p>Chef-crafted meals with full nutrition transparency. Every calorie, every macro — right on the label. Delivered fresh to your door.</p>
+      <div class="footer-socials">
+        <a class="social-btn" id="socialFb" href="javascript:void(0)" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="social-btn" id="socialIg" href="javascript:void(0)" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="social-btn" id="socialTt" href="javascript:void(0)" title="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a class="social-btn" id="socialWa" href="javascript:void(0)" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+      <div class="footer-newsletter" style="margin-top:1.25rem;">
+        <p>📬 اشترك في نشرتنا — تيبس غذائية وعروض حصرية</p>
+        <div class="footer-newsletter-row">
+          <input type="email" placeholder="بريدك الإلكتروني">
+          <button>اشترك</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a id="ftHome">🏠 Home</a></li>
+        <li><a id="ftMenu">🥗 Our Menu</a></li>
+        <li><a id="ftCalc">🧮 Calorie Calc</a></li>
+        <li><a id="ftPlans">⭐ Plans & Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a id="ftFaq">❓ FAQ</a></li>
+        <li><a id="ftTrack">📦 Track My Order</a></li>
+        <li><a id="ftReturns">🔄 Returns Policy</a></li>
+        <li><a id="ftAllergy">🌿 Allergy Info</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📞</span>
+        <div class="fc-text"><strong>Phone / WhatsApp</strong><a href="tel:+201001234567">+20 100 123 4567</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📧</span>
+        <div class="fc-text"><strong>Email</strong><a href="mailto:hello@fitterisbetter.com">hello@fitterisbetter.com</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📍</span>
+        <div class="fc-text"><strong>Location</strong>Cairo, Egypt · Delivery all over Cairo & Giza</div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">🕐</span>
+        <div class="fc-text"><strong>Working Hours</strong>Daily 8am – 10pm</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2025 Fitter Is Better. All rights reserved.</div>
+    <div class="footer-bottom-right">
+      <a>Privacy Policy</a>
+      <a>Terms of Use</a>
+      <a>Cookies</a>
+    </div>
+  </div>
+</footer>
 </div>
 
 <!-- ══════════ PAGE: MENU ══════════ -->
@@ -350,7 +811,91 @@ footer strong { color:white; }
     <div class="menu-grid" id="menuGrid"></div>
   </div>
 </div>
-<footer><strong>Fitter Is Better</strong> — Healthy meals, full transparency, real results.<br><small style="margin-top:.5rem;display:block;">© 2025 Fitter Is Better. All rights reserved.</small></footer>
+<footer>
+  <div class="footer-main">
+    <!-- Brand col -->
+    <div class="footer-brand">
+      <div class="footer-badge">🥗 Real Food · Real Results</div>
+      <div class="logo-name">Fitter Is <span>Better</span></div>
+      <p>Chef-crafted meals with full nutrition transparency. Every calorie, every macro — right on the label. Delivered fresh to your door.</p>
+      <div class="footer-socials">
+        <a class="social-btn" id="socialFb" href="javascript:void(0)" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="social-btn" id="socialIg" href="javascript:void(0)" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="social-btn" id="socialTt" href="javascript:void(0)" title="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a class="social-btn" id="socialWa" href="javascript:void(0)" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+      <div class="footer-newsletter" style="margin-top:1.25rem;">
+        <p>📬 اشترك في نشرتنا — تيبس غذائية وعروض حصرية</p>
+        <div class="footer-newsletter-row">
+          <input type="email" placeholder="بريدك الإلكتروني">
+          <button>اشترك</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a id="ftHome">🏠 Home</a></li>
+        <li><a id="ftMenu">🥗 Our Menu</a></li>
+        <li><a id="ftCalc">🧮 Calorie Calc</a></li>
+        <li><a id="ftPlans">⭐ Plans & Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a id="ftFaq">❓ FAQ</a></li>
+        <li><a id="ftTrack">📦 Track My Order</a></li>
+        <li><a id="ftReturns">🔄 Returns Policy</a></li>
+        <li><a id="ftAllergy">🌿 Allergy Info</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📞</span>
+        <div class="fc-text"><strong>Phone / WhatsApp</strong><a href="tel:+201001234567">+20 100 123 4567</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📧</span>
+        <div class="fc-text"><strong>Email</strong><a href="mailto:hello@fitterisbetter.com">hello@fitterisbetter.com</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📍</span>
+        <div class="fc-text"><strong>Location</strong>Cairo, Egypt · Delivery all over Cairo & Giza</div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">🕐</span>
+        <div class="fc-text"><strong>Working Hours</strong>Daily 8am – 10pm</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2025 Fitter Is Better. All rights reserved.</div>
+    <div class="footer-bottom-right">
+      <a>Privacy Policy</a>
+      <a>Terms of Use</a>
+      <a>Cookies</a>
+    </div>
+  </div>
+</footer>
 </div>
 
 <!-- ══════════ PAGE: CALORIE CALC ══════════ -->
@@ -401,7 +946,91 @@ footer strong { color:white; }
     </div>
   </div>
 </div>
-<footer><strong>Fitter Is Better</strong> — Healthy meals, full transparency, real results.<br><small style="margin-top:.5rem;display:block;">© 2025 Fitter Is Better. All rights reserved.</small></footer>
+<footer>
+  <div class="footer-main">
+    <!-- Brand col -->
+    <div class="footer-brand">
+      <div class="footer-badge">🥗 Real Food · Real Results</div>
+      <div class="logo-name">Fitter Is <span>Better</span></div>
+      <p>Chef-crafted meals with full nutrition transparency. Every calorie, every macro — right on the label. Delivered fresh to your door.</p>
+      <div class="footer-socials">
+        <a class="social-btn" id="socialFb" href="javascript:void(0)" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="social-btn" id="socialIg" href="javascript:void(0)" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="social-btn" id="socialTt" href="javascript:void(0)" title="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a class="social-btn" id="socialWa" href="javascript:void(0)" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+      <div class="footer-newsletter" style="margin-top:1.25rem;">
+        <p>📬 اشترك في نشرتنا — تيبس غذائية وعروض حصرية</p>
+        <div class="footer-newsletter-row">
+          <input type="email" placeholder="بريدك الإلكتروني">
+          <button>اشترك</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a id="ftHome">🏠 Home</a></li>
+        <li><a id="ftMenu">🥗 Our Menu</a></li>
+        <li><a id="ftCalc">🧮 Calorie Calc</a></li>
+        <li><a id="ftPlans">⭐ Plans & Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a id="ftFaq">❓ FAQ</a></li>
+        <li><a id="ftTrack">📦 Track My Order</a></li>
+        <li><a id="ftReturns">🔄 Returns Policy</a></li>
+        <li><a id="ftAllergy">🌿 Allergy Info</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📞</span>
+        <div class="fc-text"><strong>Phone / WhatsApp</strong><a href="tel:+201001234567">+20 100 123 4567</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📧</span>
+        <div class="fc-text"><strong>Email</strong><a href="mailto:hello@fitterisbetter.com">hello@fitterisbetter.com</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📍</span>
+        <div class="fc-text"><strong>Location</strong>Cairo, Egypt · Delivery all over Cairo & Giza</div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">🕐</span>
+        <div class="fc-text"><strong>Working Hours</strong>Daily 8am – 10pm</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2025 Fitter Is Better. All rights reserved.</div>
+    <div class="footer-bottom-right">
+      <a>Privacy Policy</a>
+      <a>Terms of Use</a>
+      <a>Cookies</a>
+    </div>
+  </div>
+</footer>
 </div>
 
 <!-- ══════════ PAGE: PLANS ══════════ -->
@@ -461,7 +1090,91 @@ footer strong { color:white; }
     </div>
   </div>
 </div>
-<footer><strong>Fitter Is Better</strong> — Healthy meals, full transparency, real results.<br><small style="margin-top:.5rem;display:block;">© 2025 Fitter Is Better. All rights reserved.</small></footer>
+<footer>
+  <div class="footer-main">
+    <!-- Brand col -->
+    <div class="footer-brand">
+      <div class="footer-badge">🥗 Real Food · Real Results</div>
+      <div class="logo-name">Fitter Is <span>Better</span></div>
+      <p>Chef-crafted meals with full nutrition transparency. Every calorie, every macro — right on the label. Delivered fresh to your door.</p>
+      <div class="footer-socials">
+        <a class="social-btn" id="socialFb" href="javascript:void(0)" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="social-btn" id="socialIg" href="javascript:void(0)" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="social-btn" id="socialTt" href="javascript:void(0)" title="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a class="social-btn" id="socialWa" href="javascript:void(0)" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+      <div class="footer-newsletter" style="margin-top:1.25rem;">
+        <p>📬 اشترك في نشرتنا — تيبس غذائية وعروض حصرية</p>
+        <div class="footer-newsletter-row">
+          <input type="email" placeholder="بريدك الإلكتروني">
+          <button>اشترك</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a id="ftHome">🏠 Home</a></li>
+        <li><a id="ftMenu">🥗 Our Menu</a></li>
+        <li><a id="ftCalc">🧮 Calorie Calc</a></li>
+        <li><a id="ftPlans">⭐ Plans & Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a id="ftFaq">❓ FAQ</a></li>
+        <li><a id="ftTrack">📦 Track My Order</a></li>
+        <li><a id="ftReturns">🔄 Returns Policy</a></li>
+        <li><a id="ftAllergy">🌿 Allergy Info</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📞</span>
+        <div class="fc-text"><strong>Phone / WhatsApp</strong><a href="tel:+201001234567">+20 100 123 4567</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📧</span>
+        <div class="fc-text"><strong>Email</strong><a href="mailto:hello@fitterisbetter.com">hello@fitterisbetter.com</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📍</span>
+        <div class="fc-text"><strong>Location</strong>Cairo, Egypt · Delivery all over Cairo & Giza</div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">🕐</span>
+        <div class="fc-text"><strong>Working Hours</strong>Daily 8am – 10pm</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2025 Fitter Is Better. All rights reserved.</div>
+    <div class="footer-bottom-right">
+      <a>Privacy Policy</a>
+      <a>Terms of Use</a>
+      <a>Cookies</a>
+    </div>
+  </div>
+</footer>
 </div>
 
 <!-- ══════════ PAGE: SUBSCRIBE ══════════ -->
@@ -505,7 +1218,91 @@ footer strong { color:white; }
     </div>
   </div>
 </div>
-<footer><strong>Fitter Is Better</strong> — Healthy meals, full transparency, real results.<br><small style="margin-top:.5rem;display:block;">© 2025 Fitter Is Better. All rights reserved.</small></footer>
+<footer>
+  <div class="footer-main">
+    <!-- Brand col -->
+    <div class="footer-brand">
+      <div class="footer-badge">🥗 Real Food · Real Results</div>
+      <div class="logo-name">Fitter Is <span>Better</span></div>
+      <p>Chef-crafted meals with full nutrition transparency. Every calorie, every macro — right on the label. Delivered fresh to your door.</p>
+      <div class="footer-socials">
+        <a class="social-btn" id="socialFb" href="javascript:void(0)" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="social-btn" id="socialIg" href="javascript:void(0)" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="social-btn" id="socialTt" href="javascript:void(0)" title="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a class="social-btn" id="socialWa" href="javascript:void(0)" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+      <div class="footer-newsletter" style="margin-top:1.25rem;">
+        <p>📬 اشترك في نشرتنا — تيبس غذائية وعروض حصرية</p>
+        <div class="footer-newsletter-row">
+          <input type="email" placeholder="بريدك الإلكتروني">
+          <button>اشترك</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a id="ftHome">🏠 Home</a></li>
+        <li><a id="ftMenu">🥗 Our Menu</a></li>
+        <li><a id="ftCalc">🧮 Calorie Calc</a></li>
+        <li><a id="ftPlans">⭐ Plans & Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a id="ftFaq">❓ FAQ</a></li>
+        <li><a id="ftTrack">📦 Track My Order</a></li>
+        <li><a id="ftReturns">🔄 Returns Policy</a></li>
+        <li><a id="ftAllergy">🌿 Allergy Info</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📞</span>
+        <div class="fc-text"><strong>Phone / WhatsApp</strong><a href="tel:+201001234567">+20 100 123 4567</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📧</span>
+        <div class="fc-text"><strong>Email</strong><a href="mailto:hello@fitterisbetter.com">hello@fitterisbetter.com</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">📍</span>
+        <div class="fc-text"><strong>Location</strong>Cairo, Egypt · Delivery all over Cairo & Giza</div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fc-icon">🕐</span>
+        <div class="fc-text"><strong>Working Hours</strong>Daily 8am – 10pm</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2025 Fitter Is Better. All rights reserved.</div>
+    <div class="footer-bottom-right">
+      <a>Privacy Policy</a>
+      <a>Terms of Use</a>
+      <a>Cookies</a>
+    </div>
+  </div>
+</footer>
 </div>
 
 <script>
@@ -513,18 +1310,18 @@ footer strong { color:white; }
    DATA
 ════════════════════════════════ */
 var meals = [
-  {id:1,category:'breakfast',emoji:'🥣',name:'Protein Oat Bowl',desc:'Steel-cut oats with berries, chia seeds & almond butter.',cal:380,protein:22,carbs:48,fat:10,priceNum:65,popular:false},
-  {id:2,category:'breakfast',emoji:'🍳',name:'Egg White Scramble',desc:'5 egg whites, spinach, cherry tomatoes & whole grain toast.',cal:290,protein:35,carbs:20,fat:6,priceNum:75,popular:true},
-  {id:3,category:'breakfast',emoji:'🥤',name:'Green Power Smoothie',desc:'Spinach, banana, Greek yogurt, ginger & hemp seeds.',cal:310,protein:18,carbs:42,fat:7,priceNum:55,popular:false},
-  {id:4,category:'lunch',emoji:'🥗',name:'Grilled Chicken Salad',desc:'Chicken breast, quinoa, avocado, cucumber & lemon tahini.',cal:450,protein:42,carbs:28,fat:16,priceNum:95,popular:true},
-  {id:5,category:'lunch',emoji:'🍱',name:'Tuna Bento Box',desc:'Tuna, brown rice, edamame, broccoli & sesame ginger dressing.',cal:410,protein:38,carbs:35,fat:9,priceNum:90,popular:false},
-  {id:6,category:'lunch',emoji:'🌯',name:'Turkey Veggie Wrap',desc:'Lean turkey, hummus, roasted peppers & greens in a whole wheat wrap.',cal:390,protein:30,carbs:40,fat:10,priceNum:80,popular:false},
-  {id:7,category:'dinner',emoji:'🍗',name:'Baked Lemon Chicken',desc:'Herb-crusted chicken thigh, sweet potato mash & steamed broccoli.',cal:520,protein:48,carbs:38,fat:14,priceNum:110,popular:true},
-  {id:8,category:'dinner',emoji:'🐟',name:'Salmon & Asparagus',desc:'Atlantic salmon fillet, asparagus, brown rice & dill sauce.',cal:490,protein:44,carbs:30,fat:18,priceNum:120,popular:false},
-  {id:9,category:'dinner',emoji:'🥩',name:'Lean Beef Stir Fry',desc:'Sirloin strips, mixed vegetables, ginger soy sauce & cauliflower rice.',cal:430,protein:40,carbs:22,fat:15,priceNum:105,popular:false},
-  {id:10,category:'snack',emoji:'🧁',name:'Protein Bliss Balls',desc:'Oats, peanut butter, honey & chocolate chips. 3 balls per serving.',cal:220,protein:12,carbs:24,fat:8,priceNum:45,popular:false},
-  {id:11,category:'snack',emoji:'🍓',name:'Greek Yogurt Parfait',desc:'Full-fat Greek yogurt, granola, strawberries & honey drizzle.',cal:280,protein:16,carbs:34,fat:7,priceNum:50,popular:true},
-  {id:12,category:'snack',emoji:'🥜',name:'Mixed Nut Trail Mix',desc:'Almonds, walnuts, cashews, dried cranberries & pumpkin seeds.',cal:190,protein:7,carbs:14,fat:13,priceNum:40,popular:false}
+  {id:1,category:'breakfast',emoji:'🥣',img:'https://images.unsplash.com/photo-1633059462559-aad4e0983cbf?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Protein Oat Bowl',desc:'Steel-cut oats with berries, chia seeds & almond butter.',cal:380,protein:22,carbs:48,fat:10,priceNum:65,popular:false},
+  {id:2,category:'breakfast',emoji:'🍳',img:'https://images.unsplash.com/photo-1510693206972-df098062cb71?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Egg White Scramble',desc:'5 egg whites, spinach, cherry tomatoes & whole grain toast.',cal:290,protein:35,carbs:20,fat:6,priceNum:75,popular:true},
+  {id:3,category:'breakfast',emoji:'🥤',img:'https://images.unsplash.com/photo-1654084767590-a38c7f0f5bd3?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Green Power Smoothie',desc:'Spinach, banana, Greek yogurt, ginger & hemp seeds.',cal:310,protein:18,carbs:42,fat:7,priceNum:55,popular:false},
+  {id:4,category:'lunch',emoji:'🥗',img:'https://images.unsplash.com/photo-1761315600943-d8a5bb0c499f?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Grilled Chicken Salad',desc:'Chicken breast, quinoa, avocado, cucumber & lemon tahini.',cal:450,protein:42,carbs:28,fat:16,priceNum:95,popular:true},
+  {id:5,category:'lunch',emoji:'🍱',img:'https://images.unsplash.com/photo-1616645297079-dfaf44a6f977?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Tuna Bento Box',desc:'Tuna, brown rice, edamame, broccoli & sesame ginger dressing.',cal:410,protein:38,carbs:35,fat:9,priceNum:90,popular:false},
+  {id:6,category:'lunch',emoji:'🌯',img:'https://images.unsplash.com/photo-1563282397-db1ac3a6bf86?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Turkey Veggie Wrap',desc:'Lean turkey, hummus, roasted peppers & greens in a whole wheat wrap.',cal:390,protein:30,carbs:40,fat:10,priceNum:80,popular:false},
+  {id:7,category:'dinner',emoji:'🍗',img:'https://images.unsplash.com/photo-1586530844517-791ce35ad21d?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Baked Lemon Chicken',desc:'Herb-crusted chicken thigh, sweet potato mash & steamed broccoli.',cal:520,protein:48,carbs:38,fat:14,priceNum:110,popular:true},
+  {id:8,category:'dinner',emoji:'🐟',img:'https://images.unsplash.com/photo-1691201090878-1b9eab935bdd?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Salmon & Asparagus',desc:'Atlantic salmon fillet, asparagus, brown rice & dill sauce.',cal:490,protein:44,carbs:30,fat:18,priceNum:120,popular:false},
+  {id:9,category:'dinner',emoji:'🥩',img:'https://images.unsplash.com/photo-1662050890689-6f1e9183787f?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Lean Beef Stir Fry',desc:'Sirloin strips, mixed vegetables, ginger soy sauce & cauliflower rice.',cal:430,protein:40,carbs:22,fat:15,priceNum:105,popular:false},
+  {id:10,category:'snack',emoji:'🧁',img:'https://images.unsplash.com/photo-1647532197692-ad9f2ecae422?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Protein Bliss Balls',desc:'Oats, peanut butter, honey & chocolate chips. 3 balls per serving.',cal:220,protein:12,carbs:24,fat:8,priceNum:45,popular:false},
+  {id:11,category:'snack',emoji:'🍓',img:'https://images.unsplash.com/photo-1550594645-25c5bd703258?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Greek Yogurt Parfait',desc:'Full-fat Greek yogurt, granola, strawberries & honey drizzle.',cal:280,protein:16,carbs:34,fat:7,priceNum:50,popular:true},
+  {id:12,category:'snack',emoji:'🥜',img:'https://images.unsplash.com/photo-1671981200629-014c03829abb?fm=jpg&q=60&w=600&auto=format&fit=crop',name:'Mixed Nut Trail Mix',desc:'Almonds, walnuts, cashews, dried cranberries & pumpkin seeds.',cal:190,protein:7,carbs:14,fat:13,priceNum:40,popular:false}
 ];
 
 var planFeatures = {
@@ -682,7 +1479,7 @@ function renderMeals(list) {
       ? '<span class="meal-price">' + m.priceNum + ' EGP</span><button class="btn-add" data-addid="' + m.id + '">+ Add</button>'
       : '<span class="meal-price">' + m.priceNum + ' EGP</span><div class="add-controls"><button class="qty-btn" data-minusid="' + m.id + '">−</button><span class="qty-display">' + qty + '</span><button class="qty-btn" data-plusid="' + m.id + '">+</button></div>';
     return '<div class="meal-card" data-id="' + m.id + '">' +
-      '<div class="meal-img">' + m.emoji + '</div>' +
+      '<div class="meal-img">' + (m.img ? '<img src="' + m.img + '" alt="' + m.name + '" loading="lazy">' : m.emoji) + '</div>' +
       '<div class="meal-body">' +
       (m.popular ? '<span class="badge-pop">⭐ Popular</span>' : '') +
       '<div class="meal-header"><div class="meal-name">' + m.name + '</div><span class="meal-cal">' + m.cal + ' kcal</span></div>' +
@@ -757,19 +1554,125 @@ function animateProgress() {
   }, 60);
 }
 
-function doCheckout() {
+/* ════════════════════════════════
+   SAVED PAYMENT DATA (localStorage)
+════════════════════════════════ */
+function savedPay(key) {
+  try { return JSON.parse(localStorage.getItem('fib_pay_' + key) || 'null'); } catch(e) { return null; }
+}
+function savePay(key, data) {
+  try { localStorage.setItem('fib_pay_' + key, JSON.stringify(data)); } catch(e) {}
+}
+function clearPay(key) {
+  try { localStorage.removeItem('fib_pay_' + key); } catch(e) {}
+}
+
+/* ════════════════════════════════
+   CART PAYMENT MODAL
+════════════════════════════════ */
+var selectedPayMethod = null;
+
+function openCartPayModal() {
   if (!Object.keys(cart).length) return;
   closeCart();
+
+  // Calculate totals
+  var tprice = 0, tcount = 0;
+  Object.keys(cart).forEach(function(id) {
+    var m = getMeal(+id);
+    tprice += m.priceNum * cart[id];
+    tcount += cart[id];
+  });
+  document.getElementById('pmTotalDisplay').textContent = tprice.toLocaleString() + ' EGP';
+  document.getElementById('pmItemCount').textContent = tcount + (tcount === 1 ? ' وجبة' : ' وجبات');
+
+  // Reset state
+  selectedPayMethod = null;
+  document.querySelectorAll('.pm-opt').forEach(function(o){ o.classList.remove('selected'); });
+  document.querySelectorAll('.pm-fields').forEach(function(f){ f.classList.remove('show'); });
+  document.getElementById('pmCashNote').classList.remove('show');
+  document.getElementById('pmConfirmBtn').disabled = true;
+
+  // Pre-fill saved data
+  var savedCard = savedPay('card');
+  if (savedCard) {
+    if (savedCard.num)  document.getElementById('pmCardNum').value = savedCard.num;
+    document.getElementById('pmSaveCard').checked = true;
+  }
+  var savedVoda = savedPay('vodafone');
+  if (savedVoda && savedVoda.num) {
+    document.getElementById('pmVodafoneNum').value = savedVoda.num;
+    document.getElementById('pmSaveVodafone').checked = true;
+  }
+  var savedInsta = savedPay('instapay');
+  if (savedInsta && savedInsta.num) {
+    document.getElementById('pmInstaNum').value = savedInsta.num;
+    document.getElementById('pmSaveInsta').checked = true;
+  }
+
+  document.getElementById('cartPayModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCartPayModal() {
+  document.getElementById('cartPayModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function selectPayMethod(type) {
+  selectedPayMethod = type;
+  document.querySelectorAll('.pm-opt').forEach(function(o){ o.classList.remove('selected'); });
+  document.querySelector('.pm-opt[data-pm="' + type + '"]').classList.add('selected');
+
+  document.querySelectorAll('.pm-fields').forEach(function(f){ f.classList.remove('show'); });
+  document.getElementById('pmCashNote').classList.remove('show');
+
+  if (type === 'card')      document.getElementById('pmCardFields').classList.add('show');
+  if (type === 'vodafone')  document.getElementById('pmVodafoneFields').classList.add('show');
+  if (type === 'instapay')  document.getElementById('pmInstaFields').classList.add('show');
+  if (type === 'cash')      document.getElementById('pmCashNote').classList.add('show');
+
+  document.getElementById('pmConfirmBtn').disabled = false;
+}
+
+function confirmCartPayment() {
+  if (!selectedPayMethod) return;
+
+  // Save data if checkbox checked
+  if (selectedPayMethod === 'card' && document.getElementById('pmSaveCard').checked) {
+    savePay('card', { num: document.getElementById('pmCardNum').value });
+  } else if (selectedPayMethod === 'card') {
+    clearPay('card');
+  }
+  if (selectedPayMethod === 'vodafone' && document.getElementById('pmSaveVodafone').checked) {
+    savePay('vodafone', { num: document.getElementById('pmVodafoneNum').value });
+  } else if (selectedPayMethod === 'vodafone') {
+    clearPay('vodafone');
+  }
+  if (selectedPayMethod === 'instapay' && document.getElementById('pmSaveInsta').checked) {
+    savePay('instapay', { num: document.getElementById('pmInstaNum').value });
+  } else if (selectedPayMethod === 'instapay') {
+    clearPay('instapay');
+  }
+
+  closeCartPayModal();
+
+  // Show confirmation
   var oid = '#FIB-' + Math.floor(10000 + Math.random()*90000);
+  var payLabel = {card:'💳 Credit Card', vodafone:'🔴 Vodafone Cash', instapay:'📱 InstaPay', cash:'💵 كاش عند الاستلام'};
   document.getElementById('checkoutTitle').textContent = 'Order Confirmed! 🎉';
   document.getElementById('checkoutIcon').textContent = '🎉';
   document.getElementById('orderIdDisplay').textContent = oid;
-  document.getElementById('checkoutMsg').textContent = 'اوردرك بيتجهز دلوقتي 👨‍🍳 وهيوصلك في أقرب وقت!';
+  document.getElementById('checkoutMsg').textContent = 'اوردرك بيتجهز دلوقتي 👨‍🍳 — ' + (payLabel[selectedPayMethod] || '') + ' · وهيوصلك في أقرب وقت!';
   document.getElementById('progressLabel').textContent = 'جاري التحضير...';
   document.getElementById('stepsStatus').style.display = 'flex';
   animateProgress();
   document.getElementById('checkoutModal').classList.add('show');
   document.body.style.overflow = 'hidden';
+}
+
+function doCheckout() {
+  openCartPayModal();
 }
 
 function showSubConfirm() {
@@ -875,8 +1778,97 @@ document.addEventListener('DOMContentLoaded', function() {
     this.value = v.replace(/(.{4})/g, '$1 ').trim();
   });
 
+  // MOBILE BOTTOM NAV
+  function syncMobileNav(pageId) {
+    var map = { pageHome:'mbnHome', pageMenu:'mbnMenu', pageCalc:'mbnCalc', pagePlans:'mbnPlans', pageSubscribe:'mbnPlans' };
+    document.querySelectorAll('.mbn-item').forEach(function(b){ b.classList.remove('active'); });
+    var target = document.getElementById(map[pageId]);
+    if (target) target.classList.add('active');
+  }
+  // Patch goToPage to also sync mobile nav
+  var _origGoToPage = goToPage;
+  goToPage = function(pageId) { _origGoToPage(pageId); syncMobileNav(pageId); };
+
+  document.getElementById('mbnHome').addEventListener('click', function(){ goToPage('pageHome'); });
+  document.getElementById('mbnMenu').addEventListener('click', function(){ goToPage('pageMenu'); renderMeals(meals); });
+  document.getElementById('mbnCalc').addEventListener('click', function(){ goToPage('pageCalc'); });
+  document.getElementById('mbnPlans').addEventListener('click', function(){ goToPage('pagePlans'); });
+  document.getElementById('mbnCart').addEventListener('click', openCart);
+
+  // Patch updateCartCount to also update mobile badge
+  var _origUpdateCartCount = updateCartCount;
+  updateCartCount = function() {
+    _origUpdateCartCount();
+    var n = totalItems();
+    var badge = document.getElementById('mbnBadge');
+    if (badge) { badge.textContent = n; badge.style.display = n ? 'flex' : 'none'; }
+  };
+  updateCartCount(); // init badge
+
   // CHECKOUT CLOSE
   document.getElementById('checkoutCloseBtn').addEventListener('click', closeCheckout);
+
+  // CART PAYMENT MODAL
+  document.getElementById('cartPayModalClose').addEventListener('click', closeCartPayModal);
+  document.getElementById('cartPayModal').addEventListener('click', function(e){
+    if (e.target === this) closeCartPayModal();
+  });
+  document.getElementById('cartPayGrid').addEventListener('click', function(e) {
+    var opt = e.target.closest('.pm-opt');
+    if (opt) selectPayMethod(opt.dataset.pm);
+  });
+  document.getElementById('pmConfirmBtn').addEventListener('click', confirmCartPayment);
+
+  // Card number formatting in pay modal
+  document.getElementById('pmCardNum').addEventListener('input', function() {
+    var v = this.value.replace(/\D/g, '').substring(0, 16);
+    this.value = v.replace(/(.{4})/g, '$1 ').trim();
+  });
+
+  // NEWSLETTER SUBSCRIBE
+  function showNlToast() {
+    var toast = document.getElementById('nlToast');
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 3500);
+  }
+  document.querySelectorAll('.footer-newsletter-row button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var input = btn.previousElementSibling;
+      if (!input || !input.value.trim()) {
+        input.focus();
+        input.style.borderColor = '#e74c3c';
+        setTimeout(function(){ input.style.borderColor = ''; }, 1500);
+        return;
+      }
+      input.value = '';
+      showNlToast();
+    });
+  });
+
+  // FOOTER LINKS
+  ['ftHome','ftMenu','ftCalc','ftPlans'].forEach(function(id) {
+    document.querySelectorAll('#'+id).forEach(function(el) {
+      el.addEventListener('click', function(){
+        var map = {ftHome:'pageHome',ftMenu:'pageMenu',ftCalc:'pageCalc',ftPlans:'pagePlans'};
+        if (id==='ftMenu') renderMeals(meals);
+        goToPage(map[id]);
+      });
+    });
+  });
+  // Support links — simple alert placeholders
+  ['ftFaq','ftTrack','ftReturns','ftAllergy'].forEach(function(id) {
+    document.querySelectorAll('#'+id).forEach(function(el) {
+      el.addEventListener('click', function(){
+        var msgs = {
+          ftFaq:'❓ الأسئلة الشائعة — قريباً!',
+          ftTrack:'📦 تتبع طلبك — أرسل رقم طلبك على واتساب وأحنا هنرد فوراً.',
+          ftReturns:'🔄 سياسة الإرجاع — في حال وجود مشكلة في طلبك تواصل معنا خلال 24 ساعة.',
+          ftAllergy:'🌿 معلومات الحساسية — كل وجبة فيها قائمة كاملة بالمكونات. تواصل معنا لو عندك حساسية معينة.'
+        };
+        alert(msgs[id]);
+      });
+    });
+  });
 
   // set default active nav
   document.getElementById('navHome').classList.add('active-link');
